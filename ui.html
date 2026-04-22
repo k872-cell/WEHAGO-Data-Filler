@@ -64,7 +64,8 @@
       <button type="button" id="btn-company">회사명</button>
       <button type="button" id="btn-team">팀 이름</button>
       <button type="button" id="btn-datetime">날짜 시간</button>
-      <button type="button" id="btn-long">긴 문장</button>
+      <button type="button" id="btn-long">긴 문장 - 세무회계</button>
+      <button type="button" id="btn-long-general">긴문장 - 일반</button>
     </div>
     <script>
       function post(type) {
@@ -75,6 +76,8 @@
       document.getElementById("btn-team").onclick = () => post("fill-team");
       document.getElementById("btn-datetime").onclick = () => post("fill-datetime");
       document.getElementById("btn-long").onclick = () => post("fill-tax");
+      document.getElementById("btn-long-general").onclick = () =>
+        post("fill-long-general");
     </script>
   </body>
 </html>
