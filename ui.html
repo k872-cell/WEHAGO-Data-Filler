@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>WEHAGO Data Filler</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 16px 16px 14px;
+        font: 12px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        color: var(--figma-color-text, #333);
+        background: var(--figma-color-bg, #fff);
+      }
+      h1 {
+        margin: 0 0 14px;
+        padding: 2px 0 4px;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.45;
+        letter-spacing: -0.01em;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      p {
+        margin: 0 0 12px;
+        color: var(--figma-color-text-secondary, #666);
+      }
+      .row {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      button {
+        appearance: none;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 12px;
+        font: inherit;
+        cursor: pointer;
+        background: #2D61FF;
+        color: #fff;
+      }
+      button:hover {
+        background: #1942BF;
+      }
+      button:active {
+        background: #1942BF;
+      }
+      button:focus-visible {
+        outline: 2px solid #2D61FF;
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WEHAGO Data Filler</h1>
+    <p>텍스트 레이어를 선택한 뒤 버튼을 누르세요.</p>
+    <div class="row">
+      <button type="button" id="btn-name">이름</button>
+      <button type="button" id="btn-company">회사명</button>
+      <button type="button" id="btn-team">팀 이름</button>
+      <button type="button" id="btn-datetime">날짜 시간</button>
+      <button type="button" id="btn-long">긴 문장</button>
+    </div>
+    <script>
+      function post(type) {
+        parent.postMessage({ pluginMessage: { type } }, "*");
+      }
+      document.getElementById("btn-name").onclick = () => post("fill-name");
+      document.getElementById("btn-company").onclick = () => post("fill-company");
+      document.getElementById("btn-team").onclick = () => post("fill-team");
+      document.getElementById("btn-datetime").onclick = () => post("fill-datetime");
+      document.getElementById("btn-long").onclick = () => post("fill-tax");
+    </script>
+  </body>
+</html>
